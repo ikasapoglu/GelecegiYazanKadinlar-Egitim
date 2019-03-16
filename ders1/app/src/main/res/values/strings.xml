@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">Ders 1</string>
+    <string name="hello_word_text">Hello World</string>
+</resources>
