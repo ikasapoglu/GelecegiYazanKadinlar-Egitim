@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn_fotografvideoekle, btn_seskayit, btn_haritayaGit, btn_webeGit, btn_smsGonder, btn_aramaYap;
 
@@ -16,19 +16,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btn_fotografvideoekle = findViewById(R.id.btn_main_fotografvideoekle);
+        btn_fotografvideoekle.setOnClickListener(this);
         btn_seskayit = findViewById(R.id.btn_main_seskayit);
-        btn_haritayaGit = findViewById(R.id.btn_main_haritayagit);
-        btn_webeGit = findViewById(R.id.btn_main_websayfasinagit);
-        btn_smsGonder = findViewById(R.id.btn_main_smsgonder);
-        btn_aramaYap = findViewById(R.id.btn_main_aramayap);
+        btn_fotografvideoekle.setOnClickListener(this);
 
-        btn_fotografvideoekle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(
-                        MainActivity.this, FotografVideoEkleActivity.class);
-                startActivity(i);
-            }
-        });
+        btn_haritayaGit = findViewById(R.id.btn_main_haritayagit);
+        btn_fotografvideoekle.setOnClickListener(this);
+
+        btn_webeGit = findViewById(R.id.btn_main_websayfasinagit);
+        btn_fotografvideoekle.setOnClickListener(this);
+
+        btn_smsGonder = findViewById(R.id.btn_main_smsgonder);
+        btn_fotografvideoekle.setOnClickListener(this);
+
+        btn_aramaYap = findViewById(R.id.btn_main_aramayap);
+        btn_fotografvideoekle.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == btn_fotografvideoekle) {
+            Intent i = new Intent(
+                    MainActivity.this, FotografVideoEkleActivity.class);
+            startActivity(i);
+        } else if (v == btn_haritayaGit) {
+            Intent i = new Intent(
+                    MainActivity.this, HaritaActivity.class);
+            startActivity(i);
+        }
+
     }
 }

@@ -35,5 +35,8 @@ public class HaritaActivity extends AppCompatActivity {
         if(i.resolveActivity(getPackageManager()) != null){
             startActivity(i);
         }
+        else{
+            //Hiçbir harita uygulaması bulunamadı
+        }
     }
 }
