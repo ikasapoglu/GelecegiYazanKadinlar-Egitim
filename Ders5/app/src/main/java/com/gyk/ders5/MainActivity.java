@@ -51,5 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     MainActivity.this, SmsGonderActivity.class);
             startActivity(i);
         }
+
+        else if ( v == btn_aramaYap)
+        {
+            Intent i = new Intent(
+                    MainActivity.this, AramaBaslatActivity.class);
+            startActivity(i);
+        }
     }
 }
