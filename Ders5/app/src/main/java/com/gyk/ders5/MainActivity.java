@@ -44,19 +44,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(
                     MainActivity.this, HaritaActivity.class);
             startActivity(i);
-        }
-        else if (v == btn_smsGonder)
-        {
+        } else if (v == btn_smsGonder) {
             Intent i = new Intent(
                     MainActivity.this, SmsGonderActivity.class);
             startActivity(i);
-        }
-
-        else if ( v == btn_aramaYap)
-        {
+        } else if (v == btn_aramaYap) {
             Intent i = new Intent(
                     MainActivity.this, AramaBaslatActivity.class);
             startActivity(i);
+        } else if (v == btn_webeGit) {
+            Intent intent = new Intent(
+                    MainActivity.this, WebActivity.class);
+            intent.putExtra("URL", "https://gelecegiyazanlar.turkcell.com.tr/");
+            startActivity(intent);
+        } else if (v == btn_seskayit) {
+            Intent intent = new Intent(
+                    MainActivity.this, SesKaydetActivity.class);
+            startActivity(intent);
         }
+
     }
 }

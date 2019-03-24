@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gyk.ders5">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,8 @@
         <activity android:name=".HaritaActivity" />
         <activity android:name=".SmsGonderActivity" />
         <activity android:name=".AramaBaslatActivity"></activity>
+        <activity android:name=".WebActivity"/>
+        <activity android:name=".SesKaydetActivity" />
     </application>
 
 </manifest>
