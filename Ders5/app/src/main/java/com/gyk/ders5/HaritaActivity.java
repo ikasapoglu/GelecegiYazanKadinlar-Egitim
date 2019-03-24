@@ -36,7 +36,7 @@ public class HaritaActivity extends AppCompatActivity {
             startActivity(i);
         }
         else{
-            //Hiçbir harita uygulaması bulunamadı
+            //TODO: Hiçbir harita uygulaması bulunamadı
         }
     }
 }

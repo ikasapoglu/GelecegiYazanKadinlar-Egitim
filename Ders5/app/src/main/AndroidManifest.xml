@@ -19,6 +19,7 @@
 
         <activity android:name=".FotografVideoEkleActivity" />
         <activity android:name=".HaritaActivity" />
+        <activity android:name=".SmsGonderActivity" />
     </application>
 
 </manifest>

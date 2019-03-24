@@ -18,25 +18,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_fotografvideoekle = findViewById(R.id.btn_main_fotografvideoekle);
         btn_fotografvideoekle.setOnClickListener(this);
         btn_seskayit = findViewById(R.id.btn_main_seskayit);
-        btn_fotografvideoekle.setOnClickListener(this);
+        btn_seskayit.setOnClickListener(this);
 
         btn_haritayaGit = findViewById(R.id.btn_main_haritayagit);
-        btn_fotografvideoekle.setOnClickListener(this);
+        btn_haritayaGit.setOnClickListener(this);
 
         btn_webeGit = findViewById(R.id.btn_main_websayfasinagit);
-        btn_fotografvideoekle.setOnClickListener(this);
+        btn_webeGit.setOnClickListener(this);
 
         btn_smsGonder = findViewById(R.id.btn_main_smsgonder);
-        btn_fotografvideoekle.setOnClickListener(this);
+        btn_smsGonder.setOnClickListener(this);
 
         btn_aramaYap = findViewById(R.id.btn_main_aramayap);
-        btn_fotografvideoekle.setOnClickListener(this);
+        btn_aramaYap.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-
         if (v == btn_fotografvideoekle) {
             Intent i = new Intent(
                     MainActivity.this, FotografVideoEkleActivity.class);
@@ -46,6 +45,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     MainActivity.this, HaritaActivity.class);
             startActivity(i);
         }
-
+        else if (v == btn_smsGonder)
+        {
+            Intent i = new Intent(
+                    MainActivity.this, SmsGonderActivity.class);
+            startActivity(i);
+        }
     }
 }
