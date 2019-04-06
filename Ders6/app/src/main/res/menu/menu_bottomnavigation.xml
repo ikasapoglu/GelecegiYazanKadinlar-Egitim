@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navitem_endekshesapla"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Endeks Hesapla" />
+
+    <item
+        android:id="@+id/navitem_bilgiekrani"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="Bilgi Ekranı" />
+    <item
+        android:id="@+id/navitem_dietlistesi"
+        android:icon="@drawable/ic_room_service_black_24dp"
+        android:title="Diet Listesi" />
+</menu>
