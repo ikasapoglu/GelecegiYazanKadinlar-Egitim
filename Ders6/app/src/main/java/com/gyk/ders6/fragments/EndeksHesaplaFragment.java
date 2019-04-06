@@ -1,4 +1,4 @@
-package com.gyk.ders6;
+package com.gyk.ders6.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.gyk.ders6.R;
 
 public class EndeksHesaplaFragment extends Fragment {
     EditText et_kilo, et_boy;

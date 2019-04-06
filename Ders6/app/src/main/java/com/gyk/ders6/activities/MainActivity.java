@@ -1,4 +1,4 @@
-package com.gyk.ders6;
+package com.gyk.ders6.activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -7,6 +7,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+
+import com.gyk.ders6.fragments.BilgiEkraniFragment;
+import com.gyk.ders6.fragments.DiyetListesiFragment;
+import com.gyk.ders6.fragments.EndeksHesaplaFragment;
+import com.gyk.ders6.R;
 
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener {

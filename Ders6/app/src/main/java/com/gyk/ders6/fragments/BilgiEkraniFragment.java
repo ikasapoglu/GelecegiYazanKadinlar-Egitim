@@ -1,4 +1,4 @@
-package com.gyk.ders6;
+package com.gyk.ders6.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.gyk.ders6.R;
 
 public class BilgiEkraniFragment extends Fragment {
 
