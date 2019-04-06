@@ -20,7 +20,7 @@ public class DiyetListesiFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_yemek_listesi, container, false);
 
         lv_yemek = view.findViewById(R.id.lv_yemeklist);
-        
+
         return view;
     }
 

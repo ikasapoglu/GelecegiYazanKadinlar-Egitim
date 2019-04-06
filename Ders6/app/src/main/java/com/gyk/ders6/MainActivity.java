@@ -3,6 +3,7 @@ package com.gyk.ders6;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -28,16 +29,20 @@ public class MainActivity extends AppCompatActivity
 
         switch (menuItem.getItemId()){
             case R.id.navitem_endekshesapla:
-                selectedFragment = null;
+                selectedFragment = new EndeksHesaplaFragment();
                 break;
             case  R.id.navitem_bilgiekrani:
-                selectedFragment = null;
+                selectedFragment = new BilgiEkraniFragment();
                 break;
             case R.id.navitem_dietlistesi:
-                selectedFragment = null;
+                selectedFragment = new DiyetListesiFragment();
                 break;
         }
 
-        return false;
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fl_container, selectedFragment);
+        transaction.commit();
+
+        return true;
     }
 }

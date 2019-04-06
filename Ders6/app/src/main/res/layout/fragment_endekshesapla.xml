@@ -54,6 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HESAPLA"/>
+        <TextView
+            android:id="@+id/tv_endekshesapla_sonuc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="8sp"
+            android:textSize="20sp"
+            android:text="0"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
