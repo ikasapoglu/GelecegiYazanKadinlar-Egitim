@@ -11,11 +11,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.irems.myticketapp.Models.MovieTicket;
 import com.example.irems.myticketapp.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btn_login;
+    Button btn_login, btn_kayitol;
     EditText et_user, et_password;
+
+    private FirebaseAuth mAuth;
 
     @Override
 
@@ -24,9 +28,21 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
 
         btn_login = findViewById(R.id.btn_login);
+        btn_kayitol = findViewById(R.id.btn_login_kayitol);
         et_user = findViewById(R.id.txt_user);
         et_password = findViewById(R.id.txt_password);
 
+
+        mAuth =  FirebaseAuth.getInstance();
+
+        btn_kayitol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+
+            }
+        });
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override

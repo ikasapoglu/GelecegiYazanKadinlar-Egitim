@@ -6,6 +6,8 @@ public class MovieTicket {
     private String filmSeans;
     private String filmFiyat;
 
+    public MovieTicket(){}
+
     public MovieTicket(int gorsel, String filmAdi, String filmSeans, String filmFiyat) {
         this.gorsel = gorsel;
         this.filmAdi = filmAdi;

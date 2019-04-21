@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/beyaz">
+
+    <LinearLayout
+        android:id="@+id/ll_kayitolgiris"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="80dp"
+        android:orientation="vertical"
+        android:layout_marginStart="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+        <EditText
+            android:id="@+id/et_adgiris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ad Giriniz.."
+            android:layout_marginTop="40dp"
+
+            />
+       <EditText
+           android:id="@+id/et_emailgiris"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Email Giriniz.."
+           android:layout_marginTop="45dp"
+
+
+           />
+        <EditText
+            android:id="@+id/et_sifregiris"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Şifre Giriniz.."
+            android:layout_marginTop="50dp"
+            />
+        <CheckBox
+            android:id="@+id/cb_sozlesme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sözleşmeyi Okudum"
+            android:textSize="20sp"
+            />
+        <Button
+            android:id="@+id/btn_kayitol"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Kayıt Ol"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="15dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
