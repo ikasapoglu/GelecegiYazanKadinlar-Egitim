@@ -3,10 +3,8 @@ package com.example.irems.myticketapp.Fragments;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,17 +15,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.irems.myticketapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.UUID;
 
 public class ProfileFragment extends Fragment {
@@ -35,6 +31,8 @@ public class ProfileFragment extends Fragment {
     TextView tv_mail;
     ImageView iv_profile;
     private static final int PICK_PHOTO_CODE = 1;
+
+    private static final String FIREBASE_DIRECTORY = "/UserProfilePhotos/";
 
     @Nullable
     @Override
@@ -55,8 +53,7 @@ public class ProfileFragment extends Fragment {
 
             }
         });
-
-
+        DownloadImage(FIREBASE_DIRECTORY+ FirebaseAuth.getInstance().getCurrentUser().getUid()+"-pp.jpg");
         return view;
     }
 
@@ -67,27 +64,55 @@ public class ProfileFragment extends Fragment {
             if (resultCode == Activity.RESULT_OK) {
                 Uri selectedImage = data.getData();
                 // System.out.println(selectedImage.getPath()+".jpg");
-                UploadImage(selectedImage);
+                UploadImage(selectedImage, FIREBASE_DIRECTORY + FirebaseAuth.getInstance().getCurrentUser().getUid() + "-pp.jpg");
 
             }
     }
 
-        private void UploadImage(Uri filepath){
-            if (filepath != null) {
-                final ProgressDialog p = new ProgressDialog(getActivity());
-                p.setTitle("Yükleniyor..");
-                p.show();
+    private void UploadImage(final Uri filepath, String photoName) {
+        if (filepath != null) {
+            final ProgressDialog p = new ProgressDialog(getActivity());
+            p.setTitle("Yükleniyor..");
+            p.show();
 
-                StorageReference ref = FirebaseStorage.getInstance().getReference(UUID.randomUUID().toString());
-                //Uri file = Uri.fromFile(new File(filepath));
-                ref.putFile(filepath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+            StorageReference ref = FirebaseStorage.getInstance().getReference(photoName);
+            ref.putFile(filepath).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        ChangeUserImage(filepath);
+                    } else {
                         System.out.println("BITTI : " + task.getException());
-                        p.dismiss();
                     }
-                });
-            }
-
+                    p.dismiss();
+                }
+            });
         }
     }
+
+    private void ChangeUserImage(Uri imageUrl) {
+        Glide.with(this).load(imageUrl).into(iv_profile);
+    }
+
+    private void DownloadImage(String filepath) {
+        if (filepath != null) {
+            final ProgressDialog p = new ProgressDialog(getActivity());
+            p.setTitle("Yükleniyor..");
+            p.show();
+
+            StorageReference ref = FirebaseStorage.getInstance().getReference(filepath);
+            Task<Uri> url = ref.getDownloadUrl();
+
+            url.addOnCompleteListener(new OnCompleteListener<Uri>() {
+                @Override
+                public void onComplete(@NonNull Task<Uri> task) {
+                    if (task.isSuccessful()) {
+                        ChangeUserImage(task.getResult());
+                        System.out.println("url:" + task.getResult());
+                    }
+                    p.dismiss();
+                }
+            });
+        }
+    }
+}

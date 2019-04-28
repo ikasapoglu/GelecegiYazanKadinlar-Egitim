@@ -49,7 +49,7 @@ public class FilmAdapter extends BaseAdapter {
 
         MovieTicket myticket=filmList.get(position);
 
-        iv_filmGorsel.setImageResource(myticket.getGorsel());
+        //iv_filmGorsel.setImageResource(myticket.getGorsel());
         tv_filmAdi.setText(myticket.getFilmAdi());
         tv_filmSeans.setText(myticket.getFilmSeans());
         tv_filmFiyat.setText(myticket.getFilmFiyat());

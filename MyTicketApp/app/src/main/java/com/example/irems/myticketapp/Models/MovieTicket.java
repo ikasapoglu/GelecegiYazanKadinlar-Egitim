@@ -1,25 +1,26 @@
 package com.example.irems.myticketapp.Models;
 
 public class MovieTicket {
-    private int gorsel;
+    private String gorsel;
     private String filmAdi;
     private String filmSeans;
     private String filmFiyat;
 
-    public MovieTicket(){}
+    public MovieTicket() {
+    }
 
-    public MovieTicket(int gorsel, String filmAdi, String filmSeans, String filmFiyat) {
+    public MovieTicket(String gorsel, String filmAdi, String filmSeans, String filmFiyat) {
         this.gorsel = gorsel;
         this.filmAdi = filmAdi;
         this.filmSeans = filmSeans;
-        this.filmFiyat=filmFiyat;
+        this.filmFiyat = filmFiyat;
     }
 
-    public int getGorsel() {
+    public String getGorsel() {
         return gorsel;
     }
 
-    public void setGorsel(int gorsel) {
+    public void setGorsel(String gorsel) {
         this.gorsel = gorsel;
     }
 

@@ -13,12 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 
+import com.example.irems.myticketapp.Fragments.BiletEkleFragment;
 import com.example.irems.myticketapp.Fragments.BuyTicketFragment;
 import com.example.irems.myticketapp.Fragments.ProfileFragment;
 import com.example.irems.myticketapp.Fragments.TicketsFragment;
 import com.example.irems.myticketapp.Models.MovieTicket;
 import com.example.irems.myticketapp.R;
 import com.example.irems.myticketapp.adapter.FilmAdapter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -49,11 +52,14 @@ public class MainActivity extends AppCompatActivity
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
+                    case R.id.nav_biletekle:
+                        selectedFragment = new BiletEkleFragment();
+                        break;
                     case R.id.nav_profile:
                         selectedFragment = new ProfileFragment();
                         break;
                 }
-                if(selectedFragment != null) {
+                if (selectedFragment != null) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fl_container, selectedFragment);
                     transaction.commit();
@@ -66,9 +72,9 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView = findViewById(R.id.bottomnav_main);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        filmListesi.add(new MovieTicket(R.drawable.film1, "Hızlı ve Öfkeli", "10:00", "30"));
-        filmListesi.add(new MovieTicket(R.drawable.film2, "Iron Man", "14:00", "30"));
-        filmListesi.add(new MovieTicket(R.drawable.film3, "Harry Potter", "18:00", "30"));
+        //filmListesi.add(new MovieTicket(R.drawable.film1, "Hızlı ve Öfkeli", "10:00", "30"));
+        //filmListesi.add(new MovieTicket(R.drawable.film2, "Iron Man", "14:00", "30"));
+        //filmListesi.add(new MovieTicket(R.drawable.film3, "Harry Potter", "18:00", "30"));
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
