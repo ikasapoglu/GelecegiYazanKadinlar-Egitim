@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.example.irems.myticketapp.Fragments.BuyTicketFragment;
+import com.example.irems.myticketapp.Fragments.ProfileFragment;
 import com.example.irems.myticketapp.Fragments.TicketsFragment;
 import com.example.irems.myticketapp.Models.MovieTicket;
 import com.example.irems.myticketapp.R;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity
                 Fragment selectedFragment = null;
                 switch (menuItem.getItemId()) {
                     case R.id.nav_profile:
-                        selectedFragment = new BuyTicketFragment();
+                        selectedFragment = new ProfileFragment();
                         break;
                 }
                 if(selectedFragment != null) {

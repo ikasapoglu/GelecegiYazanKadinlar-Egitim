@@ -3,6 +3,7 @@ package com.example.irems.myticketapp.Activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,11 @@ import android.widget.EditText;
 
 import com.example.irems.myticketapp.Models.MovieTicket;
 import com.example.irems.myticketapp.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     Button btn_login, btn_kayitol;
@@ -48,40 +53,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String user = et_user.getText().toString();
+                String user_name = et_user.getText().toString();
                 String password = et_password.getText().toString();
-                if (!user.equals("") && !password.equals("")) {
-                    Log.d("app1",user+"-"+password);
-                    if (user.equals("GYK")&& password.equals("3422")) {
-                       Intent intent=new Intent(LoginActivity.this,MainActivity.class);
-                       startActivity(intent);
+                mAuth.signInWithEmailAndPassword(user_name,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                        else{
+                            System.out.println("Failed");
 
-                    } else {
-                        new AlertDialog.Builder(LoginActivity.this)
-                                .setTitle("hata")
-                                .setMessage("Girmiş olduğunuz bilgilerde kullanıcı bulunamadı.")
-                                .setNeutralButton("tamam", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-
-                                    }
-                                }).show();
-
-
+                        }
                     }
-
-                } else {
-                    new android.app.AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("hata")
-                            .setMessage("eksik bilgi girdiniz")
-                            .setNeutralButton("tamam", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            }).show();
-
-                }
+                });
 
             }
         });

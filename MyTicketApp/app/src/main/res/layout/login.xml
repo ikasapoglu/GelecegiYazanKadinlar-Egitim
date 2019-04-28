@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:text="GYK"
+        android:text="ikasapogluu@gmail.com"
 
         android:hint="Kullanıcı Adı"
         android:inputType="textPersonName"
@@ -40,7 +40,7 @@
         android:layout_marginBottom="39dp"
         android:ems="10"
         android:hint="Şifre"
-                android:text="3422"
+                android:text="123456"
 
     android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btn_login"

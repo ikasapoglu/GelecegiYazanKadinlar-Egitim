@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.irems.myticketapp">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,9 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.RegisterActivity"/>
-        <activity android:name=".Activities.MainActivity">
 
+        <activity
+            android:launchMode="singleTop"
+            android:name=".Activities.MainActivity">
         </activity>
+
     </application>
 
 </manifest>
